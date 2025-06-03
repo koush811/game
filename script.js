@@ -67,6 +67,7 @@ const onClickmasu = (index) => {
 
   checkGameEnd();
   updateturn();
+  colorcanput();
 
 };
 
@@ -102,6 +103,7 @@ function resetBoard() {
   currentColor = 1;
   updateturn();
   kekka.textContent = "";  
+  colorcanput();
 }
 
 window.onload = () => {
@@ -109,7 +111,7 @@ window.onload = () => {
   document.getElementById('resetBtn').addEventListener('click', resetBoard);
   updateturn();
   checkGameEnd();
-
+  colorcanput();
 };
 function canPutStone(color) {
   const tmp = currentColor;
@@ -135,6 +137,7 @@ document.getElementById('passBtn').addEventListener('click', () => {
   updateBoard();
   checkGameEnd();
   updateturn();
+  colorcanput();
   alert("パスしました。相手の番です。");
 });
 function checkGameEnd() {
@@ -164,4 +167,12 @@ function updateturn(){
     turn.textContent="白";
   }
 }
-
+function colorcanput() {
+  const stones = document.querySelectorAll('.stone');
+  stones.forEach(stone => stone.classList.remove('can-put'));
+  for (let i = 0; i < 64; i++) {
+    if (stoneStateList[i] === 0 && getReversibleStones(i).length > 0) {
+      stones[i].classList.add('can-put');
+    }
+  }
+}
