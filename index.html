@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -12,88 +11,23 @@
         <div class="setumei">
             <h1>オセロ</h1>
         </div>
-        <div id="osero" class="osero">
-            <div class="line1">
-                <div class="item" id="waku1">1</div>
-                <div class="item" id="waku2">2</div>
-                <div class="item" id="waku3">3</div>
-                <div class="item" id="waku4">4</div>
-                <div class="item" id="waku5">5</div>
-                <div class="item" id="waku6">6</div>
-                <div class="item" id="waku7">7</div>
-                <div class="item" id="waku8">8</div>
-            </div>
-            <div class="line2">
-                <div class="item" id="waku9">9</div>
-                <div class="item" id="waku10">10</div>
-                <div class="item" id="waku11">11</div>
-                <div class="item" id="waku12">12</div>
-                <div class="item" id="waku13">13</div>
-                <div class="item" id="waku14">14</div>
-                <div class="item" id="waku15">15</div>
-                <div class="item" id="waku16">16</div>
-            </div>
-            <div class="line3">
-                <div class="item" id="waku17">17</div>
-                <div class="item" id="waku18">18</div>
-                <div class="item" id="waku19">19</div>
-                <div class="item" id="waku20">20</div>
-                <div class="item" id="waku21">21</div>
-                <div class="item" id="waku22">22</div>
-                <div class="item" id="waku23">23</div>
-                <div class="item" id="waku24">24</div>
-            </div>
-            <div class="line4">
-                <div class="item" id="waku25">25</div>
-                <div class="item" id="waku26">26</div>
-                <div class="item" id="waku27">27</div>
-                <div class="item" id="waku28">28</div>
-                <div class="item" id="waku29">29</div>
-                <div class="item" id="waku30">30</div>
-                <div class="item" id="waku31">31</div>
-                <div class="item" id="waku32">32</div>
-            </div>
-            <div class="line5">
-                <div class="item" id="waku33">25</div>
-                <div class="item" id="waku34">26</div>
-                <div class="item" id="waku35">27</div>
-                <div class="item" id="waku36">28</div>
-                <div class="item" id="waku37">29</div>
-                <div class="item" id="waku38">30</div>
-                <div class="item" id="waku39">31</div>
-                <div class="item" id="waku40">32</div>
-            </div>
-            <div class="line6">
-                <div class="item" id="waku41">41</div>
-                <div class="item" id="waku42">42</div>
-                <div class="item" id="waku43">43</div>
-                <div class="item" id="waku44">44</div>
-                <div class="item" id="waku45">45</div>
-                <div class="item" id="waku46">46</div>
-                <div class="item" id="waku47">47</div>
-                <div class="item" id="waku48">48</div>
-            </div>
-            <div class="line7">
-                <div class="item" id="waku49">49</div>
-                <div class="item" id="waku50">50</div>
-                <div class="item" id="waku51">51</div>
-                <div class="item" id="waku52">52</div>
-                <div class="item" id="waku53">53</div>
-                <div class="item" id="waku54">54</div>
-                <div class="item" id="waku55">55</div>
-                <div class="item" id="waku56">56</div>
-            </div>
-            <div class="line8">
-                <div class="item" id="waku57">57</div>
-                <div class="item" id="waku58">58</div>
-                <div class="item" id="waku59">59</div>
-                <div class="item" id="waku60">60</div>
-                <div class="item" id="waku61">61</div>
-                <div class="item" id="waku62">62</div>
-                <div class="item" id="waku63">63<br></div>
-                <div class="item" id="waku64">64</div>
-            </div>
+        <div id="stage" class="stage"></div>
+        <div id="masutemplate" class="masu">
+        <div class="stone">
+
         </div>
+        
+        </div>
+        <div class="turn">ターン:<div id="turn">黒</div></div>
+        <div class="kekka"><div id="kekka"></div></div>
+        <div class="btn">
+            <button id="resetBtn">リセット</button> 
+            <button id="passBtn">パス</button>
+        </div>
+
+  
+             
     </main>
+    <script src="script.js"></script>
 </body>
 </html>

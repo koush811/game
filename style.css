@@ -1,20 +1,75 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background-color: #008000;
 }
 .setumei{
-    margin-bottom: 30px;
-    display: flex;
-    justify-content: center;
+  margin-top: 3%;
+  display: flex;
+  justify-content: center;
+  font-size: 130%;
 }
-.osero{
-    display: flex;
-    justify-content: center;
+.stage {
+  display: grid;
+  grid-template-columns: repeat(8, 50px);
+  grid-template-rows: repeat(8, 50px);
+  margin: 60px auto;
+  width: 400px;
+  height: 400px;
+  background: #228B22;
 }
-.item{
-    border: solid black 3px;
-    border-radius: 50%;
-    background-color: green;
-    padding: 20px;
+.masu {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border: 2px solid black;
+  box-sizing: border-box;
+  cursor: pointer;
+  background: #006400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#masutemplate {
+  display: none;
+}
+.stone {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+}
+.stone[data-state="0"] {
+  display: none;
+}
+.stone[data-state="1"] {
+  background-color: black;
+}
+.stone[data-state="2"] {
+  background-color: white;
+}
+.turn{
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+}
+#kekka{
+  
+  margin-top: 1%;
+  display: flex;
+  justify-content: space-around;
+  border-bottom: black;
+}
+
+.btn{
+  display: flex;
+  justify-content: center;
+  margin-top: 2%;
+  
+}
+#resetBtn{
+  margin-right: 5%;
 }
