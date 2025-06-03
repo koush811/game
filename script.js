@@ -101,12 +101,15 @@ function resetBoard() {
   createmasu();
   currentColor = 1;
   updateturn();
+  kekka.textContent = "";  
 }
 
 window.onload = () => {
   createmasu();
   document.getElementById('resetBtn').addEventListener('click', resetBoard);
   updateturn();
+  checkGameEnd();
+
 };
 function canPutStone(color) {
   const tmp = currentColor;
@@ -160,6 +163,5 @@ function updateturn(){
   }else{
     turn.textContent="白";
   }
-
 }
 
