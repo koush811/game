@@ -5,7 +5,7 @@
 }
 body {
   margin: 0;
-  background-color: #008000;
+  background-color: gray;
 }
 .setumei{
   margin-top: 3%;
@@ -75,4 +75,14 @@ body {
 }
 .can-put{
   background-color: #000000 !important;
+}
+button{
+  padding: 20px 20px;
+  border-radius: 10px;
+}
+#resetBtn{
+  background-color: red;
+}
+#passBtn{
+  background-color: rgb(0, 157, 255);
 }
