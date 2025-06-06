@@ -1,8 +1,9 @@
 const stage = document.getElementById("stage");
 const masutemplate = document.getElementById("masutemplate");
 let stoneStateList = [];
-let currentColor = 1;
-
+const black = 1; 
+const white = 2;
+let currentColor = black;
 
 const getReversibleStones = (index) => {
   const directions = [
@@ -12,7 +13,7 @@ const getReversibleStones = (index) => {
   ];
   const result = [];
   const myColor = currentColor;
-  const enemyColor = myColor === 1 ? 2 : 1;
+  const enemyColor = myColor === black ? white : black;
   
   const x = index % 8;
   const y = Math.floor(index / 8);
@@ -48,12 +49,18 @@ const updateBoard = () => {
 
 const onClickmasu = (index) => {
   if (stoneStateList[index] !== 0) {
-    alert("置けない");
+    masuhantei.textContent="置けない";
+    setTimeout(function() {
+      masuhantei.textContent="";
+    }, 1000);
     return;
   }
   const reversible = getReversibleStones(index);
   if (reversible.length === 0) {
-    alert("置けない");
+    masuhantei.textContent="置けない";
+    setTimeout(function() {
+      masuhantei.textContent="";
+    }, 1000);
     return;
   }
 
@@ -64,11 +71,9 @@ const onClickmasu = (index) => {
   }
   updateBoard();
   currentColor = currentColor === 1 ? 2 : 1;
-
   checkGameEnd();
   updateturn();
   colorcanput();
-
 };
 
 const createmasu = () => {
@@ -113,6 +118,7 @@ window.onload = () => {
   checkGameEnd();
   colorcanput();
 };
+
 function canPutStone(color) {
   const tmp = currentColor;
   currentColor = color;
@@ -130,7 +136,11 @@ function canPutStone(color) {
 
 document.getElementById('passBtn').addEventListener('click', () => {
   if (canPutStone(currentColor)) {
-    alert("置ける場所があります。パスできません。");
+    masuhantei.textContent="置ける場所があります。パスできません。";
+    setTimeout(function() {
+      masuhantei.textContent="";
+    }, 1000);
+    return;
     return;
   }
   currentColor = currentColor === 1 ? 2 : 1;
@@ -138,15 +148,19 @@ document.getElementById('passBtn').addEventListener('click', () => {
   checkGameEnd();
   updateturn();
   colorcanput();
-  alert("パスしました。相手の番です。");
+  masuhantei.textContent="パスしました。相手の番です。";
+  setTimeout(function() {
+      masuhantei.textContent="";
+    }, 1000);
+    return;
 });
 function checkGameEnd() {
   if (!canPutStone(1) && !canPutStone(2)) {
     let black = 0;
     let white = 0;
     for (let i = 0; i < 64; i++) {
-      if (stoneStateList[i] === 1) black++;
-      if (stoneStateList[i] === 2) white++;
+      if (stoneStateList[i] === black) black++;
+      if (stoneStateList[i] === white) white++;
     }
     let message = `黒: ${black}個\n白: ${white}個\n`;
     if (black > white) {
@@ -161,7 +175,7 @@ function checkGameEnd() {
 }
 function updateturn(){
   const turn = document.getElementById('turn');
-  if(currentColor == 1){
+  if(currentColor == black){
     turn.textContent="黒";
   }else{
     turn.textContent="白";

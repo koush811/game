@@ -5,7 +5,7 @@
 }
 body {
   margin: 0;
-  background-color: gray;
+  background-color: rgb(254, 227, 136);
 }
 .setumei{
   margin-top: 3%;
@@ -76,13 +76,24 @@ body {
 .can-put{
   background-color: #000000 !important;
 }
+#masuhantei{
+  display: flex;
+  justify-content: center;
+}
 button{
   padding: 20px 20px;
   border-radius: 10px;
 }
 #resetBtn{
-  background-color: red;
+  background-color: rgb(255, 55, 0);
+  color: white;
 }
 #passBtn{
   background-color: rgb(0, 157, 255);
+}
+#resetBtn:hover{
+  background-color: rgba(255, 60, 0, 0.429);
+}
+#passBtn:hover{
+  background-color: rgba(0, 157, 255, 0.372);
 }
