@@ -14,7 +14,6 @@ const getReversibleStones = (index) => {
   const result = [];
   const myColor = currentColor;
   const enemyColor = myColor === black ? white : black;
-  
   const x = index % 8;
   const y = Math.floor(index / 8);
   for (const [dx, dy] of directions) {
@@ -39,7 +38,6 @@ const getReversibleStones = (index) => {
   }
   return result;
 };
-
 const updateBoard = () => {
   const stones = document.querySelectorAll('.stone');
   for (let i = 0; i < 64; i++) {
@@ -49,18 +47,18 @@ const updateBoard = () => {
 
 const onClickmasu = (index) => {
   if (stoneStateList[index] !== 0) {
-    masuhantei.textContent="置けない";
+    masuhantei.textContent="置けません";
     setTimeout(function() {
       masuhantei.textContent="";
-    }, 1000);
+    }, 1500);
     return;
   }
   const reversible = getReversibleStones(index);
   if (reversible.length === 0) {
-    masuhantei.textContent="置けない";
+    masuhantei.textContent="置けません";
     setTimeout(function() {
       masuhantei.textContent="";
-    }, 1000);
+    }, 1500);
     return;
   }
 
@@ -92,7 +90,6 @@ const createmasu = () => {
     } else {
       defaultState = 0;
     }
-
     stone.setAttribute("data-state", defaultState);
     stoneStateList.push(defaultState);
     masu.addEventListener('click', () => {
@@ -126,10 +123,8 @@ function canPutStone(color) {
     if (stoneStateList[i] === 0 && getReversibleStones(i).length > 0) {
       currentColor = tmp;
       return true;
+      }
     }
-    
-    }
-
   currentColor = tmp;
   return false;
 }
@@ -139,7 +134,7 @@ document.getElementById('passBtn').addEventListener('click', () => {
     masuhantei.textContent="置ける場所があります。パスできません。";
     setTimeout(function() {
       masuhantei.textContent="";
-    }, 1000);
+    }, 1500);
     return;
     return;
   }
@@ -151,21 +146,22 @@ document.getElementById('passBtn').addEventListener('click', () => {
   masuhantei.textContent="パスしました。相手の番です。";
   setTimeout(function() {
       masuhantei.textContent="";
-    }, 1000);
+    }, 1500);
     return;
 });
+
 function checkGameEnd() {
   if (!canPutStone(1) && !canPutStone(2)) {
-    let black = 0;
-    let white = 0;
+    let blackcount = 0;
+    let whitecount = 0;
     for (let i = 0; i < 64; i++) {
-      if (stoneStateList[i] === black) black++;
-      if (stoneStateList[i] === white) white++;
+      if (stoneStateList[i] === black) blackcount++;
+      if (stoneStateList[i] === white) whitecount++;
     }
-    let message = `黒: ${black}個\n白: ${white}個\n`;
-    if (black > white) {
+    let message = `黒: ${blackcount}個\n白: ${whitecount}個\n`;
+    if (blackcount > whitecount) {
       message += "黒の勝ち！";
-    } else if (white > black) {
+    } else if (whitecount > blackcount) {
       message += "白の勝ち！";
     } else {
       message += "引き分け！";
@@ -173,6 +169,7 @@ function checkGameEnd() {
     kekka.textContent=message;
   }
 }
+
 function updateturn(){
   const turn = document.getElementById('turn');
   if(currentColor == black){
@@ -181,12 +178,14 @@ function updateturn(){
     turn.textContent="白";
   }
 }
+
 function colorcanput() {
-  const stones = document.querySelectorAll('.stone');
+  const stones = document.querySelectorAll('.masu');
   stones.forEach(stone => stone.classList.remove('can-put'));
   for (let i = 0; i < 64; i++) {
     if (stoneStateList[i] === 0 && getReversibleStones(i).length > 0) {
       stones[i].classList.add('can-put');
+      alert
     }
   }
 }

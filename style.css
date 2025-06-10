@@ -57,7 +57,7 @@ body {
   justify-content: center;
 }
 #kekka{
-  
+  font-size: 30px;
   margin-top: 1%;
   display: flex;
   justify-content: space-around;
@@ -68,14 +68,15 @@ body {
   display: flex;
   justify-content: center;
   margin-top: 2%;
-  
+  margin-bottom: 10%;
 }
 #resetBtn{
   margin-right: 5%;
 }
-.can-put{
-  background-color: #000000 !important;
+.can-put {
+  background-color: yellowgreen !important;
 }
+
 #masuhantei{
   display: flex;
   justify-content: center;
@@ -90,6 +91,7 @@ button{
 }
 #passBtn{
   background-color: rgb(0, 157, 255);
+  color: white;
 }
 #resetBtn:hover{
   background-color: rgba(255, 60, 0, 0.429);
