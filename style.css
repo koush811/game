@@ -22,6 +22,16 @@ body {
   height: 400px;
   background: #228B22;
 }
+.count {
+  display: flex;
+  justify-content: center;
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+.count span {
+  margin: 0 10px;
+}
+
 .masu {
   position: relative;
   width: 50px;

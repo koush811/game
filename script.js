@@ -72,6 +72,7 @@ const onClickmasu = (index) => {
   checkGameEnd();
   updateturn();
   colorcanput();
+  updateStoneCount();
 };
 
 const createmasu = () => {
@@ -106,6 +107,7 @@ function resetBoard() {
   updateturn();
   kekka.textContent = "";  
   colorcanput();
+  updateStoneCount();
 }
 
 window.onload = () => {
@@ -114,6 +116,7 @@ window.onload = () => {
   updateturn();
   checkGameEnd();
   colorcanput();
+  updateStoneCount();
 };
 
 function canPutStone(color) {
@@ -133,7 +136,7 @@ document.getElementById('passBtn').addEventListener('click', () => {
   if (canPutStone(currentColor)) {
     masuhantei.textContent="置ける場所があります。パスできません。";
     setTimeout(function() {
-      masuhantei.textContent="";
+    masuhantei.textContent="";
     }, 1500);
     return;
     return;
@@ -147,6 +150,7 @@ document.getElementById('passBtn').addEventListener('click', () => {
   setTimeout(function() {
       masuhantei.textContent="";
     }, 1500);
+    updateStoneCount();
     return;
 });
 
@@ -158,7 +162,7 @@ function checkGameEnd() {
       if (stoneStateList[i] === black) blackcount++;
       if (stoneStateList[i] === white) whitecount++;
     }
-    let message = `黒: ${blackcount}個\n白: ${whitecount}個\n`;
+    let message = "";
     if (blackcount > whitecount) {
       message += "黒の勝ち！";
     } else if (whitecount > blackcount) {
@@ -166,6 +170,7 @@ function checkGameEnd() {
     } else {
       message += "引き分け！";
     }
+    
     kekka.textContent=message;
   }
 }
@@ -188,4 +193,14 @@ function colorcanput() {
       alert
     }
   }
+}
+function updateStoneCount() {
+  let blackcount = 0;
+  let whitecount = 0;
+  for (let i = 0; i < 64; i++) {
+    if (stoneStateList[i] === black) blackcount++;
+    if (stoneStateList[i] === white) whitecount++;
+  }
+  document.getElementById('blackCount').textContent = `黒: ${blackcount}`;
+  document.getElementById('whiteCount').textContent = `白: ${whitecount}`;
 }
