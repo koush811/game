@@ -1,14 +1,14 @@
 const stage = document.getElementById("stage");
 const masutemplate = document.getElementById("masutemplate");
 let stoneStateList = [];
-const black = 1; 
+const black = 1;
 const white = 2;
 let currentColor = black;
 
 const getReversibleStones = (index) => {
   const directions = [
     [-1, -1], [-1, 0], [-1, 1],
-    [0, -1],           [0, 1],
+    [0, -1], [0, 1],
     [1, -1], [1, 0], [1, 1]
   ];
   const result = [];
@@ -24,11 +24,11 @@ const getReversibleStones = (index) => {
       const ni = ny * 8 + nx;
       if (stoneStateList[ni] === enemyColor) {
         tmp.push(ni);
-      } 
+      }
       else if (stoneStateList[ni] === myColor) {
         if (tmp.length > 0) result.push(...tmp);
         break;
-      } 
+      }
       else {
         break;
       }
@@ -47,17 +47,17 @@ const updateBoard = () => {
 
 const onClickmasu = (index) => {
   if (stoneStateList[index] !== 0) {
-    masuhantei.textContent="置けません";
-    setTimeout(function() {
-      masuhantei.textContent="";
+    masuhantei.textContent = "置けません";
+    setTimeout(function () {
+      masuhantei.textContent = "";
     }, 1500);
     return;
   }
   const reversible = getReversibleStones(index);
   if (reversible.length === 0) {
-    masuhantei.textContent="置けません";
-    setTimeout(function() {
-      masuhantei.textContent="";
+    masuhantei.textContent = "置けません";
+    setTimeout(function () {
+      masuhantei.textContent = "";
     }, 1500);
     return;
   }
@@ -105,7 +105,7 @@ function resetBoard() {
   createmasu();
   currentColor = 1;
   updateturn();
-  kekka.textContent = "";  
+  kekka.textContent = "";
   colorcanput();
   updateStoneCount();
 }
@@ -126,17 +126,17 @@ function canPutStone(color) {
     if (stoneStateList[i] === 0 && getReversibleStones(i).length > 0) {
       currentColor = tmp;
       return true;
-      }
     }
+  }
   currentColor = tmp;
   return false;
 }
 
 document.getElementById('passBtn').addEventListener('click', () => {
   if (canPutStone(currentColor)) {
-    masuhantei.textContent="置ける場所があります。パスできません。";
-    setTimeout(function() {
-    masuhantei.textContent="";
+    masuhantei.innerHTML = "置ける場所があります。\nパスできません。".replace(/\n/g, "<br>");
+    setTimeout(function () {
+      masuhantei.textContent = "";
     }, 1500);
     return;
     return;
@@ -146,12 +146,12 @@ document.getElementById('passBtn').addEventListener('click', () => {
   checkGameEnd();
   updateturn();
   colorcanput();
-  masuhantei.textContent="パスしました。相手の番です。";
-  setTimeout(function() {
-      masuhantei.textContent="";
-    }, 1500);
-    updateStoneCount();
-    return;
+  masuhantei.textContent = "パスしました。相手の番です。";
+  setTimeout(function () {
+    masuhantei.textContent = "";
+  }, 1500);
+  updateStoneCount();
+  return;
 });
 
 function checkGameEnd() {
@@ -170,17 +170,17 @@ function checkGameEnd() {
     } else {
       message += "引き分け！";
     }
-    
-    kekka.textContent=message;
+
+    kekka.textContent = message;
   }
 }
 
-function updateturn(){
+function updateturn() {
   const turn = document.getElementById('turn');
-  if(currentColor == black){
-    turn.textContent="黒";
-  }else{
-    turn.textContent="白";
+  if (currentColor == black) {
+    turn.textContent = "黒";
+  } else {
+    turn.textContent = "白";
   }
 }
 

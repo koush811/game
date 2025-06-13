@@ -17,10 +17,11 @@ body {
   display: grid;
   grid-template-columns: repeat(8, 50px);
   grid-template-rows: repeat(8, 50px);
-  margin: 60px auto;
   width: 400px;
   height: 400px;
   background: #228B22;
+  margin: auto;
+  
 }
 .count {
   display: flex;
@@ -46,6 +47,11 @@ body {
 }
 #masutemplate {
   display: none;
+}
+#masuhantei{
+  margin-bottom: 30px;
+  color:red;
+  font-size: 150%;
 }
 .stone {
   width: 42px;
@@ -109,3 +115,14 @@ button{
 #passBtn:hover{
   background-color: rgba(0, 157, 255, 0.372);
 }
+.board-area {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.side-info{
+  position: absolute;
+  top: 30%;
+  right: 30%;
+}
+

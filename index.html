@@ -8,28 +8,30 @@
 </head>
 <body>
     <main>
-        <div class="setumei">
-            <h1>オセロ</h1>
-        </div>
-        <div class="count">
-                <span id="blackCount">黒: 2</span>
-                <span id="whiteCount">白: 2</span>
-            </div>
-        <div class="kekka"><div id="kekka"></div></div>
-        <div id="stage" class="stage"></div>
-            <div>
-                <div id="masutemplate" class="masu">
-                    <div class="stone"></div>               
-            </div>
-            
-            </div>
-            <div id="masuhantei"></div>
-            <div class="turn">ターン:<div id="turn">黒</div></div>  
-        <div class="btn">
-            <button id="resetBtn">リセット</button> 
-            <button id="passBtn">パス</button>
-        </div>
-    </main>
+  <div class="setumei">
+    <h1>オセロ</h1>
+  </div>
+  <div class="board-area">
+    <div id="stage" class="stage"></div>
+    <div class="side-info">
+      <div class="turn">ターン: <span id="turn">黒</span></div>
+      <div class="count">
+        <span id="blackCount">黒: 2</span>
+        <span id="whiteCount">白: 2</span>
+      </div>
+      <div class="btn">
+        <button id="resetBtn">リセット</button>
+        <button id="passBtn">パス</button>
+      </div>
+      <div id="masuhantei"></div>
+      <div class="kekka" id="kekka"></div>
+    </div>
+  </div>
+  <template id="masutemplate">
+    <div class="masu"><div class="stone"></div></div>
+  </template>
+</main>
+
     <script src="script.js"></script>
 </body>
 </html>
