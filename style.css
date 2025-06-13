@@ -8,7 +8,7 @@ body {
   background-color: rgb(254, 227, 136);
 }
 .setumei{
-  margin-top: 3%;
+  margin: 3%;
   display: flex;
   justify-content: center;
   font-size: 130%;
@@ -83,12 +83,8 @@ body {
 .btn{
   display: flex;
   justify-content: center;
-  margin-top: 2%;
-  margin-bottom: 10%;
 }
-#resetBtn{
-  margin-right: 5%;
-}
+
 .can-put {
   background-color: yellowgreen !important;
 }
@@ -98,6 +94,7 @@ body {
   justify-content: center;
 }
 button{
+  margin: 5%;
   padding: 20px 20px;
   border-radius: 10px;
 }
@@ -119,10 +116,15 @@ button{
   display: flex;
   align-items: center;
   position: relative;
+  padding: 3%;
 }
 .side-info{
   position: absolute;
   top: 30%;
-  right: 30%;
+  right: 15%;
+  width: 20%;
+}
+.count{
+  font-size: 150%;
 }
 
