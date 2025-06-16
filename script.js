@@ -170,8 +170,8 @@ function checkGameEnd() {
     } else {
       message += "引き分け！";
     }
-
     kekka.textContent = message;
+    document.getElementById("clearwindow").style.display = "flex";
   }
 }
 
@@ -203,4 +203,8 @@ function updateStoneCount() {
   }
   document.getElementById('blackCount').textContent = `黒: ${blackcount}`;
   document.getElementById('whiteCount').textContent = `白: ${whitecount}`;
+}
+function restart() {
+  document.getElementById("clearwindow").style.display = "none";
+  resetBoard();
 }
