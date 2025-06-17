@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>オセロゲームだよー</title>
 </head>
 <body>
     <main>
@@ -34,7 +34,7 @@
   </div>
 </main>
 <footer>
-  <div id="clearwindow" style="display: flex;">
+  <div id="clearwindow" style="display: none;">
     <div class="end">
       <div class="kekka" id="kekka"></div>
       <div class="end-count">
@@ -44,7 +44,14 @@
       <button class="restart" onclick="restart()">もう一度遊ぶ</button>
     </div>
   </div>
+  <div id="clearstart" style="display: flex;">
+    <div class="start">
+      <div>ボタンを押すとスタート</div>
+      <button class="startbtn" onclick="start()">スタート</button>
+    </div>
+  </div>
 </footer>
+
     <script src="script.js"></script>
 </body>
 </html>

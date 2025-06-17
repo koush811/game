@@ -164,11 +164,11 @@ function checkGameEnd() {
     }
     let message = "";
     if (blackcount > whitecount) {
-      message += "黒の勝ち！";
+      message += "黒の勝ち";
     } else if (whitecount > blackcount) {
-      message += "白の勝ち！";
+      message += "白の勝ち";
     } else {
-      message += "引き分け！";
+      message += "引き分け";
     }
     kekka.textContent = message;
     document.getElementById("clearwindow").style.display = "flex";
@@ -208,5 +208,9 @@ function updateStoneCount() {
 }
 function restart() {
   document.getElementById("clearwindow").style.display = "none";
+  resetBoard();
+}
+function start(){
+  document.getElementById("clearstart").style.display = "none";
   resetBoard();
 }
