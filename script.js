@@ -203,6 +203,8 @@ function updateStoneCount() {
   }
   document.getElementById('blackCount').textContent = `黒: ${blackcount}`;
   document.getElementById('whiteCount').textContent = `白: ${whitecount}`;
+  document.getElementById('end-black').textContent = `黒: ${blackcount}`;
+  document.getElementById('end-white').textContent = `白: ${whitecount}`;
 }
 function restart() {
   document.getElementById("clearwindow").style.display = "none";
